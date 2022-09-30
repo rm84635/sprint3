@@ -1,4 +1,4 @@
-package com.microservico.produto.models;
+package com.microservico.email.models;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -7,17 +7,17 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class ProdutoModel {
     
     @Id
-    private Long id;
+    private String id;
     
     private String marca;
     private double preco;
     private String categoria;
     private double peso;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
     public String getMarca() {

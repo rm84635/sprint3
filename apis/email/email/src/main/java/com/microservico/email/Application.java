@@ -1,13 +1,13 @@
-package com.microservico.produto;
+package com.microservico.email;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProdutoApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProdutoApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }

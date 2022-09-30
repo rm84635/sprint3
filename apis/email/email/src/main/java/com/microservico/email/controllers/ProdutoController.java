@@ -1,4 +1,4 @@
-package com.microservico.produto.controllers;
+package com.microservico.email.controllers;
 
 import java.util.Optional;
 
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.microservico.produto.models.ProdutoModel;
-import com.microservico.produto.repositories.ProdutoRepos;
+import com.microservico.email.models.ProdutoModel;
+import com.microservico.email.repositories.ProdutoRepos;
 
 @RestController
 @RequestMapping("/produto")
@@ -25,7 +25,7 @@ public class ProdutoController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyRole('USER')")
-    public ResponseEntity<ProdutoModel> findById(@PathVariable Long id){
+    public ResponseEntity<ProdutoModel> findById(@PathVariable String id){
         Optional<ProdutoModel> model = produtoRepos.findById(id);
         return new ResponseEntity<ProdutoModel>(model.get(), HttpStatus.OK);
     }
