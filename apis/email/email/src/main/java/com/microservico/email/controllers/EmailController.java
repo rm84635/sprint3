@@ -1,5 +1,6 @@
 package com.microservico.email.controllers;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.access.method.P;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +31,13 @@ public class EmailController {
 
     @Autowired
     private EmailEnviadoRepos emailEnviadoRepos;
+
+    @GetMapping
+    @PreAuthorize("hasAnyRole('USER')")
+    public ResponseEntity<List> obter(){
+        List<EmailTemplate> template = templateRepos.findAll();
+        return new ResponseEntity<List>(template, HttpStatus.OK);
+    }
 
     @PostMapping
     @PreAuthorize("hasAnyRole('USER')")
